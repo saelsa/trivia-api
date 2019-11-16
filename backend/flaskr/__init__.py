@@ -198,15 +198,18 @@ def create_app(test_config=None):
         previous_questions = body.get('previous_questions')
 
         if category['type'] == 'click':
-            new_question = Question.query.filter(
-                Question.id.notin_((previous_questions))).first()
+            available_questions = Question.query.filter(
+                Question.id.notin_((previous_questions))).all()
         else:
-            new_question = Question.query.filter_by(
-                category=category['id']).filter(Question.id.notin_((previous_questions))).first()
+            available_questions = Question.query.filter_by(
+                category=category['id']).filter(Question.id.notin_((previous_questions))).all()
+
+        new_question = available_questions[random.randrange(
+            0, len(available_questions))].format() if len(available_questions) > 0 else None
 
         return jsonify({
             'success': True,
-            'question': new_question.format() if new_question else None,
+            'question': new_question
         })
 
     '''
