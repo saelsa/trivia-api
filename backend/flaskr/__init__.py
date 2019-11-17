@@ -52,7 +52,7 @@ def create_app(test_config=None):
 
         return jsonify({
             'success': True,
-            'categories': [category.type for category in categories]
+            'categories': {category.id: category.type for category in categories}
         })
 
     '''
@@ -80,7 +80,7 @@ def create_app(test_config=None):
             'success': True,
             'questions': current_questions,
             'total_questions': len(selection),
-            'categories': [category.type for category in categories],
+            'categories': {category.id: category.type for category in categories},
             'current_category': None
         })
     '''

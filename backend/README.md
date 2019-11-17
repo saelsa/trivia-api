@@ -74,16 +74,17 @@ Fetches a dictionary of all available categories
 - *Example response:*  
 ```
 {
-  "categories": [
-    "Art", 
-    "Entertainment", 
-    "Geography", 
-    "History", 
-    "Science", 
-    "Sports"
-  ], 
+  "categories": {
+    "1": "Science", 
+    "2": "Art", 
+    "3": "Geography", 
+    "4": "History", 
+    "5": "Entertainment", 
+    "6": "Sports"
+  }, 
   "success": true
 }
+
 ```
 
 
@@ -92,14 +93,14 @@ Fetches a paginated dictionary of questions of all available categories
 - *Request parameters (optional):* page:int 
 - *Example response:*  
  ``` {
-  "categories": [
-    "Art", 
-    "Entertainment", 
-    "Geography", 
-    "History", 
-    "Science", 
-    "Sports"
-  ], 
+  "categories": {
+    "1": "Science", 
+    "2": "Art", 
+    "3": "Geography", 
+    "4": "History", 
+    "5": "Entertainment", 
+    "6": "Sports"
+  }, 
   "current_category": null, 
   "questions": [
     {
