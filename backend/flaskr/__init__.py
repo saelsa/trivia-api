@@ -172,7 +172,7 @@ def create_app(test_config=None):
 
         try:
             questions = Question.query.filter(
-                Question.category == category_id).all()
+                Question.category == str(category_id)).all()
 
             return jsonify({
                 'success': True,
